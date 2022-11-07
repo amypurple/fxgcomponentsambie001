@@ -10,6 +10,7 @@ jobs:
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
         steps:
             - uses: actions/checkout@v2
+            - uses: oleksiyrudenko/gha-git-credentials@v2-latest
               with:
                   token: ${{secrets.GH_PERSONAL_ACCESS_TOKEN}}
             - run: git config --global user.name '${{secrets.GH_PUBLIC_NAME}}'
