@@ -2,30 +2,40 @@ name: pipelinecomponentsambie001
 
 on:
     push:
-        branches: [master]
+        branches: ["master"]
 
 jobs:
     version:
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+
         runs-on: ubuntu-latest
-        #if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+
+        strategy:
+            matrix:
+                node-version: [12.x]
+
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
         steps:
             - uses: actions/checkout@v2
+
+            - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+
               with:
-                  token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-            - run: git config --global user.name '${{ secrets.GH_PUBLIC_NAME }}'
-            - run: git config --global user.email '${{ secrets.GH_EMAIL }}'
+                  token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
+
             - run: npm version patch -m "[RELEASE] %s"
-            - run: git push
-            - run: git push --tags
-        # publish:
-        # runs-on: ubuntu-latest
-        # steps:
-        #   - uses: actions/checkout@v3
-        #   - uses: actions/setup-node@v3
-        #     with:
-        #       node-version: 12
-        #   - run: npm install
-        #   - uses: JS-DevTools/npm-publish@v1
-        #     with:
-        #       token: ${{ secrets.NPM_TOKEN }}
+
+            - run:
+                  git push
+                  # publish:
+                  # runs-on: ubuntu-latest
+                  # steps:
+                  #   - uses: actions/checkout@v3
+                  #   - uses: actions/setup-node@v3
+                  #     with:
+                  #       node-version: 12
+                  #   - run: npm install
+                  #   - uses: JS-DevTools/npm-publish@v1
+                  #     with:
+                  #       token: ${{ secrets.NPM_TOKEN }}
