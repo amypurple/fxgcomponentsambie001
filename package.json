@@ -1,0 +1,26 @@
+{
+  "name": "fxgcomponentsambie001",
+  "version": "1.0.0",
+  "description": "Exercice Components Pipeline Garneau",
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amypurple/fxgcomponentsambie001.git"
+  },
+  "keywords": [
+    "components",
+    "react"
+  ],
+  "author": "Amy Bienvenu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amypurple/fxgcomponentsambie001/issues"
+  },
+  "homepage": "https://github.com/amypurple/fxgcomponentsambie001#readme"
+}
