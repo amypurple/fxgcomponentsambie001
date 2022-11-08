@@ -4,5 +4,5 @@ module.exports = {
 	components: ["../lib/**/*.components.mdx", "../lib/**/*.components.@(js|jsx|ts|tsx)"],
 	addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
 	framework: "@storybook/react",
-	staticDirs: [{ from: "../src/assets", to: "/assets" }],
+	//	staticDirs: [{ from: "../src/assets", to: "/assets" }],
 };
