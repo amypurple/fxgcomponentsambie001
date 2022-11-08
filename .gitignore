@@ -109,9 +109,6 @@ dist
 # git
 .git
 
-# storybook
-.storybook
-
 # yarn
 yarn.lock
 
