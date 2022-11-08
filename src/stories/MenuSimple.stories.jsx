@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-import { MenuSimple } from '../components/MenuSimple/MenuSimple';
+import { MenuSimple } from '../../lib/components/MenuSimple/MenuSimple';
 
 export default {
   title: 'Components-TP1/Menu',

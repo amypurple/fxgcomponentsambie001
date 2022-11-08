@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-import { PaginationSimple } from '../components/PaginationSimple/PaginationSimple';
+import { PaginationSimple } from '../../lib/components/PaginationSimple/PaginationSimple';
 
 export default {
   title: 'Components-TP1/Pagination',

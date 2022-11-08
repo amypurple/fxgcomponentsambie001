@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-import { Liste } from '../components/Liste/Liste';
+import { Liste } from '../../lib/components/Liste/Liste';
 
 export default {
   title: 'Components-TP1/Liste',

@@ -108,6 +108,20 @@ dist
 
 # git
 .git
+
+# storybook
 .storybook
+
+# yarn
 yarn.lock
-package.json.lock
+
+# package lock
+package-lock.json
+
+# Archives Zip
+*.zip
+
+# dossiers
+/node_modules
+/dist
+/storybook-static

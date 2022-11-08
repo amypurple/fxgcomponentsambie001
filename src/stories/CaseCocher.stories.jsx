@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-import { CaseCocher } from '../components/CaseCocher/CaseCocher';
+import { CaseCocher } from '../../lib/components/CaseCocher/CaseCocher';
 
 export default {
   title: 'Components-TP1/CaseCocher',

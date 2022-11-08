@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-import { Bouton } from '../components/Bouton/Bouton';
+import { Bouton } from '../../lib/components/Bouton/Bouton';
 
 export default {
   title: 'Components-TP1/Bouton',
