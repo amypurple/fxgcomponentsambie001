@@ -109,3 +109,5 @@ dist
 # git
 .git
 .storybook
+yarn.lock
+package.json.lock
