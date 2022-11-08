@@ -6,6 +6,7 @@ on:
 
 jobs:
     version:
+        name: Versionnage Automatique
         runs-on: ubuntu-latest
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
         steps:
@@ -20,13 +21,14 @@ jobs:
             - run: git tag
             - run: git push --tags
     publish:
+        name: Publication Automatique vers npmjs.org
         runs-on: ubuntu-latest
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
+                  node-version: 16.x
                   registry-url: "https://registry.npmjs.org"
             - run: npm install
             - run: npm ci
@@ -34,3 +36,25 @@ jobs:
             - uses: JS-DevTools/npm-publish@v1
               with:
                   token: ${{secrets.NPM_TOKEN}}
+    ftpdeploy:
+        name: Deploiement Automatique vers Site Web par FTP
+        runs-on: ubuntu-latest
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+        steps:
+            - name: Get latest code
+              uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16.x
+                  registry-url: "https://registry.npmjs.org"
+            - run: npm install
+            - run: npm ci
+            - run: npm run build-storybook
+            - name: Sync files
+              uses: SamKirkland/FTP-Deploy-Action@4.3.2
+              with:
+                  local-dir: "storybook-static/"
+                  server-dir: "public_html/storybook/"
+                  server: ${{secrets.FTP_SERVER}}
+                  username: ${{secrets.FTP_USER}}
+                  password: ${{secrets.FTP_PASSWORD}}
