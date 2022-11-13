@@ -43,3 +43,10 @@ Link.args = {
   text: "Link Default Default",
   link: "http://google.ca"
 };
+
+export const Patate = Template.bind({});
+Patate.args = {
+  type: "link",
+  text: "Patate",
+  link: "http://Patate.ca"
+};
