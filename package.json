@@ -1,6 +1,6 @@
 {
   "name": "fxgcomponentsambie001",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Exercice Components Pipeline Garneau",
   "main": "./lib/index.js",
   "directories": {
